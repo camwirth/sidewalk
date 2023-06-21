@@ -3,10 +3,7 @@
 ## Training Results
 
 
-I have trained both the Surface Problem and Curb Ramp alone using the YOLOX-m model. Because the training set for surface problem is so large, I originally trained the model with input  resolution of 640x640. I started training the model with 1280x1280 resolution yesterday (Tuesday June 20) and it should be completed around 10:30am today. I will record the results for the surface problem training once it is finished.
-
-
-The table below records the training time and the quantity of train/test input data. 
+I have trained both the Surface Problem and Curb Ramp alone using the YOLOX-m model. The table below records the training time and the quantity of train/test input data. 
 
 | Object          | Training Time | Train Images | Train Bounding Boxes | Test Images | Test Bounding Boxes |
 |-----------------|---------------|--------------|----------------------|-------------|---------------------|
