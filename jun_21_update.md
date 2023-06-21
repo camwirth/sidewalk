@@ -19,17 +19,17 @@ The mAP and mAR of the best model saved during the training process are shown in
 
 |Object           | mean Average Precision | mean Average Recall |
 |-----------------|------------------------|---------------------|
-| Curb Ramp       | 36.995                 | 59.182              |
-| Surface Problem |
+| Curb Ramp       | 31.653                 | 39.773              |
+| Surface Problem | 8.403                  | 21.962              |
 
-The folowing are screenshots of the results after running the evaluation program using the best model saved in the training process
+The folowing are screenshots of the results after running the evaluation program using the best model saved in the training process. These results are measured with a given confidence threshold of 0.25.
 
-| Curb Ramp                                                     | Surface Problem |
-|---------------------------------------------------------------|-----------------|
-| ![Curb Ramp Results](/jun_21_eval_results/curb_ramp_eval.png) |
+| Curb Ramp                                                     | Surface Problem                                                     |
+|---------------------------------------------------------------|---------------------------------------------------------------------|
+| ![Curb Ramp Results](/jun_21_eval_results/curb_ramp_eval.png) | ![Surface Problem Results](/jun_21_eval_results/surface_problem_eval.png) |
 
 
-These images plot the total loss and the average precision throughout the training at each epoch. The plots for the Surface Problem training are the results for the image with 640x640 resolution. I will update these plots to reflect the results from training the model with 1280x1280 input images. 
+These images plot the total loss and the average precision throughout the training at each epoch. This evaluation uses the default confidence threshold parameter of 0.1 to calculate the mAP@0.5
 
 | Object          | Total Loss                                                              | mAP@0.5                                                                     |
 |-----------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -42,17 +42,19 @@ These images plot the total loss and the average precision throughout the traini
 ## Image Examples
 After testing the model on the trained model, I found some examples of the model output compared with the ground truth. In many cases, the model properly detects curb ramps. The input data is not perfect as can be seen in these examples. I believe that is affecting the results of the model the most. 
 
-| Pano ID                | Curb Ground Truth                                                         | Curb Ramp Output                                       |
-|------------------------|---------------------------------------------------------------------------|--------------------------------------------------------|
-| N2oWxkP_2T2B85pDtg6Y2g | ![N2oW Ground Truth](/jun_21_img/ground_truth/N2oWxkP_2T2B85pDtg6Y2g.jpg) | ![N2oW Output](/jun_21_img/N2oWxkP_2T2B85pDtg6Y2g.jpg) |
-| TvLEfMjoTzEBcdjSIBBqlg | ![TvLe Ground Truth](/jun_21_img/ground_truth/TvLEfMjoTzEBcdjSIBBqlg.jpg) | ![TvLe Output](/jun_21_img/TvLEfMjoTzEBcdjSIBBqlg.jpg) |
-| 2xgwttEdq2xtqbe93VweTw | ![2xgw Ground Truth](/jun_21_img/ground_truth/2xgwttEdq2xtqbe93VweTw.jpg) | ![2xgw Output](/jun_21_img/2xgwttEdq2xtqbe93VweTw.jpg) |
+| Pano ID                | Curb Ground Truth                                                                   | Curb Ramp Output                                                        |
+|------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| N2oWxkP_2T2B85pDtg6Y2g | ![N2oW Ground Truth](/jun_21_img/curb_ramp/ground_truth/N2oWxkP_2T2B85pDtg6Y2g.jpg) | ![N2oW Output](/jun_21_img/curb_ramp/output/N2oWxkP_2T2B85pDtg6Y2g.jpg) |
+| TvLEfMjoTzEBcdjSIBBqlg | ![TvLe Ground Truth](/jun_21_img/curb_ramp/ground_truth/TvLEfMjoTzEBcdjSIBBqlg.jpg) | ![TvLe Output](/jun_21_img/curb_ramp/output/TvLEfMjoTzEBcdjSIBBqlg.jpg) |
+| 2xgwttEdq2xtqbe93VweTw | ![2xgw Ground Truth](/jun_21_img/curb_ramp/ground_truth/2xgwttEdq2xtqbe93VweTw.jpg) | ![2xgw Output](/jun_21_img/curb_ramp/output/2xgwttEdq2xtqbe93VweTw.jpg) |
 
 
 
-| Pano ID                | Surface Problem Ground Truth | Surface Problem Output |
-|------------------------|------------------------------|------------------------|
-|  
+| Pano ID                | Surface Problem Ground Truth                                                              | Surface Problem Output                                                        |
+|------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| -PTEVxc8LDlAwvw0a-gy7Q | ![-PTE Ground Truth](/jun_21_img/surface_problem/ground_truth/-PTEVxc8LDlAwvw0a-gy7Q.jpg) | ![-PTE Output](/jun_21_img/surface_problem/output/-PTEVxc8LDlAwvw0a-gy7Q.jpg) |
+| 06dlc7TBXKu475EJNqK_zA | ![06dl Ground Truth](/jun_21_img/surface_problem/ground_truth/06dlc7TBXKu475EJNqK_zA.jpg) | ![06dl Output](/jun_21_img/surface_problem/output/06dlc7TBXKu475EJNqK_zA.jpg) |
+| -DUyiIN28nK_3TnJKWpLwg | ![-DUy Ground Truth](/jun_21_img/surface_problem/ground_truth/-DUyiIN28nK_3TnJKWpLwg.jpg) | ![-DUy Output](/jun_21_img/surface_problem/output/-DUyiIN28nK_3TnJKWpLwg.jpg) |
 
 
 <!-- | Pano ID | Missing Curb Ramp Ground Truth | Missing Curb Ramp Output|
