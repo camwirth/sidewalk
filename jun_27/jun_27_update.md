@@ -76,12 +76,15 @@ Validation Loss
 
 The results for both YOLO-NAS and YOLOX are very similar. YOLO-NAS has a higher mAP@0.5 by 0.11% and a higher Recall by 11.52%. At this point, I think I can move forward with implementing improvements to improve the results in both YOLOX and YOLO-NAS.
 
-<!-- ## Model Output Map Visualization 
-[Interactive Map](/jun_27/spgg-curb-test-map.html) -->
+## Model Output Map Visualization 
+
+I created a way to visualize the output of the cv model. Using the predicted bounding box from model, the lat/long of the object is estimated using code given by Mikey and others working at University of Washington. The estimated lat/long of the object is not perfect. It has an error up to 10-15 meters. I made this map plotting the estimated lat/long points of the detected object. The color of the point is determined based on the confidence score of the detected output. 
+
+[Interactive Map](https://htmlpreview.github.io/?https://github.com/camwirth/sidewalk/blob/main/jun_27/spgg-curb-test-map.html)
 
 ## Moving Forward
 
 - Change the loss function in YOLOX by implementing the DecIoU loss function 
 - analyze default hyperparameters in YOLOX and try changes to improve results of curb-ramp detection. 
 - go through YOLO-NAS code & understand loss function used.
-<!-- - create map with markers at lat/long coordinates from panorama image and include output image of model predictions -->
+- create map with markers at lat/long coordinates from panorama image and include output image of model predictions
