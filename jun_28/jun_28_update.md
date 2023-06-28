@@ -19,7 +19,7 @@ I used the same dataset that Supriyo used in training his model.
 
 | Precision | Recall | mAP@0.50 |
 |-----------|--------|----------|
-| ![YOLO-NAS Missing Ramp Precision](/jun_28/precision.png) | ![YOLO-NAS Missing Ramp Recall](/jun_28/recall.png) | ![YOLO-NAS Missing Ramp mAP@0.50](/jun_28/map.png) |
+| ![YOLO-NAS Missing Ramp Precision](/jun_28/precision.png) | ![YOLO-NAS Missing Ramp Recall](/jun_28/recall.png) | ![YOLO-NAS Missing Ramp mAP@0.50](/jun_28/map50.png) |
 
 Training Loss
 
