@@ -43,11 +43,11 @@ After completing training on each of the classes alone, I started training model
 
 Before training the model I prepared a dataset that was somewhat balanced with a similar number of train/test images for each of the classes. I ensured that any images with labels from more than one class were included in the datasets. 
 
-The following table shows the number of test/train images and labels that were used to train the model with Curb Ramp and Missing Curb Ramp classes. 
+
 
 ### Missing Curb Ramp and Curb Ramp
+The following table shows the number of test/train images and labels that were used to train the model with Curb Ramp and Missing Curb Ramp classes. 
 
-|-------------------------------------------------------------------------------------------|
 | Class             | Training Images | Training Labels | Test/Val Images | Test/Val Labels |
 |-------------------|-----------------|-----------------|-----------------|-----------------|
 | Curb Ramp         | 1162            | 1625            | 266             | 370             |
