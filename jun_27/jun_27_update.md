@@ -2,26 +2,29 @@
 
 ## YOLOX
 
-After spending some time examining the results of YOLOX I discovered why the results are so poor. YOLOX uses pycoco tools and the default coco evaluation metrics. The Average Precision and Average Recall that are saved are evaluated at mAP@0.5:95 and mAR@0.5:95 which is the average of the AP and AR evaluated at different IoU thresholds ranging from 0.5 to 0.95. 
+After spending some time examining the results of YOLOX I discovered why the results are so poor. YOLOX uses pycoco tools and the default coco evaluation metrics. The Average Precision and Average Recall that are saved are evaluated at AP@0.5:95 and AR@0.5:95 which is the average of the AP and AR evaluated at different IoU thresholds ranging from 0.5 to 0.95. 
 
-I took some time to go through the code and change it to extract the mAP@0.5 and mAR@0.5. I also changed the confidence threshold to be 0.25 during training rather than the default 0.01. This confidence threshold stays consistent throughout all training and evalutation.  After making these changes I retrained the curb-ramp. The following table records the training results. 
+I took some time to go through the code and change it to extract the AP@0.5 and AR@0.5. I also changed the confidence threshold to be 0.25 during training rather than the default 0.01. This confidence threshold stays consistent throughout all training and evalutation.  After making these changes I retrained the curb-ramp. The following table records the training results. 
 
 
 #### Curb Ramp Training
-| mAP@0.5 | mAR@0.5 |
+| AP@0.5  | AR@0.5  |
 |---------|---------|
 | 0.542   | 0.673   |
 
 
-Evaluation Results with added code to record mAP@0.5 and mAR@0.5
+Evaluation Results with added code to record AP@0.5 and AR@0.5
 
 ![YOLOX Eval Results](/jun_27/jun_27_eval_results/yolox/curb_ramp_results.png)
 
-Plots of mAP@0.5 and mAP@0.5:95 for each epoch
+Plots of AP@0.5 and AP@0.5:95 for each epoch
 
 ![YOLOX Curb Ramp Results](/jun_27/jun_27_tensorboard/yolox/cr_map.png)
 
 I believe that these results are more comparable to the other models; however, they are still limited. I will try to spend more time on YOLOX changing hyperparameters and trying to look into the loss function. 
+
+**Note**
+After reading the article Dr. Qi emailed today, I looked into the YOLOX code to understand the evaluation metrics that it is calculating. From examining the code, I believe the mean Precision and Recall are being calculated at different IoU thresholds. . YOLOX saves the best model which produces the highest AP@0.5:95. 
 
 ## YOLO-NAS
 
@@ -71,10 +74,11 @@ Validation Loss
 
 | Performance Metric | YOLO-NAS | YOLOX |
 |--------------------|----------|-------|
-| mAP@0.5            | 0.5431   | 0.542 |
+| Precision          | 0.4313   | 0.542 |
 | Recall             | 0.7882   | 0.673 |
+| mAP@0.5            | 0.5431   | ?     |
 
-The results for both YOLO-NAS and YOLOX are very similar. YOLO-NAS has a higher mAP@0.5 by 0.11% and a higher Recall by 11.52%. At this point, I think I can move forward with implementing improvements to improve the results in both YOLOX and YOLO-NAS.
+The results for both YOLO-NAS and YOLOX are very similar. YOLO-NAS has a higher Recall by 11.52%; however, YOLOX has a higher precision by 11.07%. I am assuming that the mAP@0.5 for YOLOX would be somewhat similar to YOLO-NAS. At this point, I think I can move forward with implementing improvements to improve the results in both YOLOX and YOLO-NAS. I would like to look into the evaluation of YOLOX more and see if I can understand how to evaluate all of the performance metrics that I need. 
 
 ## Model Output Map Visualization 
 
