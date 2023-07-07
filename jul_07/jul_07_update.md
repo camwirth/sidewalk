@@ -22,9 +22,12 @@ The results for each of these models is recorded in the model below. These resul
 | Surface Problem   | 0.18699603 | 0.78760105 | 0.2690549  |
 
 
-The following are the provided plots for each of the models. These plots represent the different metrics accross each Epoch of training. To decrease the training time and increase the number of experiments I can do, I chose to limit each training to 50 epochs.
+
 
 ## Plots
+
+The following are the provided plots for each of the models. These plots represent the different metrics accross each Epoch of training. To decrease the training time and increase the number of experiments I can do, I chose to limit each training to 50 epochs.
+
 | Class             | Precision                                                           | Recall                                                           | mAP@0.50                                              |
 |-------------------|---------------------------------------------------------------------|------------------------------------------------------------------|-------------------------------------------------------|
 | Curb Ramp         | ![Curb Ramp Precision](/jul_07/plots/ramp_precision.png)            | ![Curb Ramp Recall](/jul_07/plots/ramp_recall.png)               | ![Curb AP](/jul_07/plots/ramp_ap.png)                 |
@@ -46,6 +49,7 @@ Before training the model I prepared a dataset that was somewhat balanced with a
 
 
 ### Missing Curb Ramp and Curb Ramp
+
 The following table shows the number of test/train images and labels that were used to train the model with Curb Ramp and Missing Curb Ramp classes. 
 
 | Class             | Training Images | Training Labels | Test/Val Images | Test/Val Labels |
@@ -56,6 +60,7 @@ The following table shows the number of test/train images and labels that were u
 
 
 **Tested results** 
+
 The results for this model are shown below. The YOLO-NAS does not directly give the individual metrics for each class. However, after looking through the source code I was able to find where these metrics are calculated and record them. The total metrics are the metrics that are originally recorded by the YOLO-NAS training model. These are an average of all the individual class metrics. 
 
 | Class             | Precision  | Recall     | mAP@0.50   |
@@ -78,6 +83,7 @@ I trained a model using all three classes. The number of images and labels per c
 
 
 **Tested results** 
+
 The following table are the results for the "best" model that the training gave as an output. This is the model with the highest average mAP@0.50.
 
 | Class             | Precision  | Recall     | mAP@0.50   |
