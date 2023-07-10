@@ -13,6 +13,7 @@ To begin training on the YOLO-NAS model, I trained each of the classes on their 
 ## Calculated results 
 
 **Tested results** 
+
 The results for each of these models is recorded in the model below. These results were calculated at an IoU threshold of 0.5 and a confidence threshold of 0.25
 
 | Class             | Precision  | Recall     | mAP@0.50   |
