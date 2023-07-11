@@ -300,12 +300,11 @@ The output of this test is interesting. With the "good" dataset, the performance
 
 ## Observations and Conclusions
 
-At this point, the best chance we have at improving the model comes in improving the data. I've thought of a few ways that we could potentially do this. I have also found some interesting papers to look closer into, but I have not yet read them completely.
-
-1. Manually cleaning the labels for each image.
-    - Using [Roboflow](https://roboflow.com/annotate) you can upload the images and annotations. You can adjust the annotations and generate new annotations to download for training. 
-2. Removing images with the worst labels from both training and testing
-3. Implement changes to model to adjust for inaccuracy in bounding boxes (some ideas are in these papers)
+The data that we have is noisy and difficult to get good results from. Even manually labeling the objects is difficult as the objects are small in the panoramas and dificult to detect with the human eye. We need to look into ways to improving our models to detect the slight differences in the objects while using noisy data. Below are some ideas/articles that I have found that could potentially help improve the models. 
+1. Removing images with the worst labels from both training and testing
+2. Implement changes to model to adjust for inaccuracy in bounding boxes (some ideas are in these papers)
     - [Robust Object Detection With Inaccurate Bounding Boxes](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136700052.pdf)
     - [Combating noisy labels in object detection datasets](https://arxiv.org/abs/2211.13993)
     - [Noisy Annotation Refinement for Object Detection](https://www.bmvc2021-virtualconference.com/assets/papers/0778.pdf)
+3. adjusting and comparing different bounding box generation methods
+<!--4. Implementing different cropping methods to provide more data with higher resolution images (rather than resizing the images and altering the aspect ratio - crops are made from the images of higher resolution)-->
