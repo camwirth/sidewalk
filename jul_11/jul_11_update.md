@@ -3,15 +3,17 @@
 
 ## Observations on Training Data
 
-After going through images of the ground truth labels on the training data, I have noticed a few problems with the data. 
+After going through images of the ground truth labels on the training data, here are some problems that I have found occur the most often. 
 
-1. Inaccurate Labeling
+1. A single object is labeled both a curb ramp and a missing curb ramp (inaccurate labeling)
 
 ![](/jul_11/images/examples/1j1MTLjaGwlSFr2RjnGcTw.jpg)
 
 ![](/jul_11/images/examples/6H2KpDa0Gboi0XudOD-a4Q.jpg)
 
-2. Bounding boxes are too large - contain more than one object in a single bounding box
+![](/jul_11/images/examples/7wJOUVc9ZCFZyWUEmWdbkA.jpg)
+
+2. Bounding boxes are too large - contains more than one object in a single bounding box
 
 ![](/jul_11/images/examples/_0K_L3M_OR-IbXZmFhjnKw.jpg)
 
@@ -25,10 +27,9 @@ After going through images of the ground truth labels on the training data, I ha
 
 ![](/jul_11/images/examples/2DSyVoKzjM8AyDjn_QSFiA.jpg)
 
-4. Too many annotations for a single object - confusing data
+4. Multiple labels for a single object
 
 ![](/jul_11/images/examples/_64uLj04uXCbTz3XliN-Lg.jpg)
-
 
 5. Unclear what object actually is
 
@@ -47,6 +48,22 @@ After going through images of the ground truth labels on the training data, I ha
 ![](/jul_11/images/examples/0u3i98En30QZU9SCkc1tPA.jpg)
 
 ![](/jul_11/images/examples/2hP9T94nA5NkM_P9wYYQAQ.jpg)
+
+8. Object is very small and difficult to detect
+
+![](/jul_11/images/examples/5LKMc78PLY7Te3uBxP4Kig.jpg)
+
+![](/jul_11/images/examples/6n3E8x5eR05nNLbdEG0ZfA.jpg)
+
+
+
+I believe that all of these issues can be summarized into just a few categories to focus on. 
+
+1. Objects are too small to be accurately detected
+2. Noisy location of objects (center point) - point is off-centered making it difficult to include object in bounding box
+3. Noisy bounding box - bounding boxes are too large or don't include the entire object
+4. Inaccurate labeling - some labels are completely wrong
+
 
 ## Visualizing Testing
 
@@ -304,7 +321,13 @@ The data that we have is noisy and difficult to get good results from. Even manu
 1. Removing images with the worst labels from both training and testing
 2. Implement changes to model to adjust for inaccuracy in bounding boxes (some ideas are in these papers)
     - [Robust Object Detection With Inaccurate Bounding Boxes](https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136700052.pdf)
-    - [Combating noisy labels in object detection datasets](https://arxiv.org/abs/2211.13993)
+        - Assumes that classification maintains high accuracy with noisy box annotations. Uses MIL to generate more accurate bounding boxes
+    - [Correcting Imprecise Object Locations for Training Object Detectors in Remote Sensing Applications](https://doi.org/10.3390/rs13244962)
+        - Assumes noise in object locations. co-correction technique applied as a preprocessing step trains a neural network to generate corrected object locations and estimate bounding boxes
+    <!-- - [Combating noisy labels in object detection datasets](https://arxiv.org/abs/2211.13993)
+        - detects problematic and incorrect labels for objects in training data -->
     - [Noisy Annotation Refinement for Object Detection](https://www.bmvc2021-virtualconference.com/assets/papers/0778.pdf)
 3. adjusting and comparing different bounding box generation methods
+<!-- 4. Preprocess and filter data. Find ways to focus on training/testing with panoramas that are taken at intersections rather than residential roads
+    - a link to a map locating all the panorama images in the test set for spgg can be found [here]() -->
 <!--4. Implementing different cropping methods to provide more data with higher resolution images (rather than resizing the images and altering the aspect ratio - crops are made from the images of higher resolution)-->
