@@ -79,8 +79,6 @@ I went through the testing data and selected 6 different sets of images
 | Bad Curb Ramps and Missign Curb Ramps  |
 
 
-Each of these sets of images along with notes on why they were chosen in the set can be found here 
-
 I tested these sets on 3 different models:
 
 | Models                          |
