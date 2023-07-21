@@ -23,12 +23,16 @@ Along with larger complexity it must be trained. The use of two models in Divide
 
 After testing and working with DivideMix I don't believe that the algorithm will work well with our dataset. Not only does the algorithm work only with Image Classification, but it also 
 
+## Creating more accurate Test dataset
+
+After examining the predictions for the train dataset, I noticed that the model was more accurate that what the metrics say. I spent some time creating an accurate Test dataset. Below are some examples of differences
+
+**include image examples**
+
+
 ## Self-Supervised training approach
 
 The major problem in our data is lack of labeling (especially in the test set) This leads to inaccurate results. I looked into a self-supervised training approach where the result data from the model is used as further training data. 
-
-1. Create a reliable test set. 
-    - using the results from my Curb Ramp model, I examined the bounding boxes for all predictions that had a confidence level of 0.25 or above. 
 
 2. Run the self-supervised training
 
