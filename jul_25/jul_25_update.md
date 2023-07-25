@@ -24,9 +24,9 @@ After training with this dataset and the new test dataset, the results showed a 
 | Model              | Precision | Recall | mAP@0.5 | 
 |--------------------|-----------|--------|---------|
 | Original Test Set  | 0.2866    | 0.8297 | 0.5774  |
-| New Test Set       | 0.4787    | 0.9726 | 0.8881  |
+| New Test Set       | 0.5517    | 0.7869 | 0.6394  |
 
-The precision had the greatest increase of almost 20% and the recall improved by around 15%. I believe this is due to the increased number of accurate labels in the test set. Because of the lack of labeling in the test set previously, the model would accurately predict curb ramps, but these predictions would be counted as false positves becasue the ground truth labels did not represent the object as a curb ramp. 
+The precision had the greatest increase of more than 20% and the recall decreased by about 5%. I believe this is due to the increased number of accurate labels in the test set. Because of the lack of labeling in the test set previously, the model would accurately predict curb ramps, but these predictions would be counted as false positves becasue the ground truth labels did not represent the object as a curb ramp. 
 
 ## Ideas to move forward with
 
