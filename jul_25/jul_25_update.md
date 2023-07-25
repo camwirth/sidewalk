@@ -1,47 +1,43 @@
 # July 25 Update 
 
-## DivideMix
+## Improved Test Set
 
-DivideMix is built around Image Classification rather than Object Detection. Because of this, I ran into some difficulty implementing DivideMix with our dataset. I did however try some tests using the algorithm and provided code to fit generated crops of "noisy" labels using a binary classification. The procedure and results for these tests are explained below.
+I spent a large amount of time last week creating a more accurate test set to ensure that the Curb Ramp Object Detection models I'm running are being accurately tested. Examples of improved image labels are shown below. 
 
-1. Produce noisy dataset for DivideMix
-    - Generate crops from all given labels and label them as 1 (Curb Ramp)
-    - Generate crops from all predicted labels using the Curb-Ramp model previously trained
-        - labels with a confidence score greater than 40% were labeled as 1 (Curb Ramp)
-        - labels with a confidence score greater than 25% but less than 40% were labeled as 0 (not Curb Ramp)
-2. Alter DivideMix code to work with dataset
-3. Run the DivideMix training for 50 epochs 
-4. Evaluate Results
-
-DivideMix was not created with Binary Classification in mind. 
-- Label Imbalance
-- Entropy-based splitting 
-- pseudo-labeling splitting
-
-DivideMix also introduces many more hyperparameters which must be finetuned to the dataset making the problem more complicated 
-Along with larger complexity it must be trained. The use of two models in DivideMix doubles the training time 
-
-After testing and working with DivideMix I don't believe that the algorithm will work well with our dataset. Not only does the algorithm work only with Image Classification, but it also 
-
-## Creating more accurate Test dataset
-
-After examining the predictions for the train dataset, I noticed that the model was more accurate that what the metrics say. I spent some time creating an accurate Test dataset. Below are some examples of differences
-
-**include image examples**
+| Original Labels for Image | Improved Labels for Image |
+|---------------------------|---------------------------| 
+|![](/jul_25/original_images/22t3BWEMJhtwxRXEc1jwmw.jpg) | ![](/jul_25/improved_images/22t3BWEMJhtwxRXEc1jwmw.jpg) |
+| ![](/jul_25/original_images/4kOxGkIgHq-Ea5NvoLP44A.jpg) | ![](/jul_25/improved_images/4kOxGkIgHq-Ea5NvoLP44A.jpg) |
+| ![](/jul_25/original_images/5WwhGZim8Z_YQWuiSWXiFQ.jpg) | ![](/jul_25/improved_images/5WwhGZim8Z_YQWuiSWXiFQ.jpg) |
 
 
-## Self-Supervised training approach
+I created this test set by including all predicted labels that had a confidence score greater than 0.25. Using both the predicted lables and the given labels, I then manually went through each test image and removed the inaccurate labels. 
 
-The major problem in our data is lack of labeling (especially in the test set) This leads to inaccurate results. I looked into a self-supervised training approach where the result data from the model is used as further training data. 
+I would like to review the test set again to ensure that the changes made represent a quality dataset. 
 
-2. Run the self-supervised training
+### Training Results
 
+After creating the new test set, I then re-ran the training using the given train dataset. I added a pre-processing step to remove duplicate bounding boxes by removing bounding boxes that had an iou > 0.5 with another label on the image. 
 
-Resources:
+After training with this dataset and the new test dataset, the results showed a dramatic improvement. A comparison of the performance metrics of the original model, and the new model trained with a more accurate test set can be seen below. 
 
-Self-supervised
-https://arxiv.org/pdf/2102.11614.pdf
+| Model              | Precision | Recall | mAP@0.5 | 
+|--------------------|-----------|--------|---------|
+| Original Test Set  | 0.2866    | 0.8297 | 0.5774  |
+| New Test Set       | 0.4787    | 0.9726 | 0.8881  |
 
-https://arxiv.org/abs/1705.07115
+The precision had the greatest increase of almost 20% and the recall improved by around 15%. I believe this is due to the increased number of accurate labels in the test set. Because of the lack of labeling in the test set previously, the model would accurately predict curb ramps, but these predictions would be counted as false positves becasue the ground truth labels did not represent the object as a curb ramp. 
 
+## Ideas to move forward with
+
+I have read some articles about how to move forward and there are 3 papers that interest me the most. These papers are listed below
+
+2. Co-training: Predict pseudo labels for unlabeld data & expand labeled data
+    -  https://www.cs.cmu.edu/~avrim/Papers/cotrain.pdf
+3. Self-Supervised Learning: self-training approach that uses 'selective net' to identify positive bounding boxes & designate negative examples to a 'safe zone' to prevent negative examples from interfering with training process
+    - https://arxiv.org/pdf/2007.09162.pdf
+4. Co-mining:
+    - https://arxiv.org/pdf/2012.01950.pdf
+    - https://github.com/megvii-research/Co-mining
+    
 
