@@ -1,10 +1,10 @@
 # Summary of Object Detection Progress by the USU CV Team
 
 This document, along with the subsequent documents in this folder, offers a comprehensive summary of the work completed by the USU CV team on the Universal Pathways project. Here, we provide an overall summary of our team's methodologies, the challenges we faced, and the results we obtained. For a more in-depth exploration of specific topics and issues, we have included additional documents in this folder. Each of these supplementary documents delves into distinct aspects of our research, presenting detailed explanations, insights, and findings. Brief summaries of the information covered in these additional documents are provided below:
-- [Data Problems](): Summary of issues found in the crowdsourced data from Project Sidewalk
-- [Mapping Object Detection Output](): Explanation of potential output conversion in maps
-- [Evaluation Metrics for Object Detection Models](): Explanation of different evaluation metrics used to explain quality of Object Detection models along with discussion questions on how best to present the models
-- [Bounding Box Generation](): Summary of approaches used to generate the bounding box labels given the point source object labels from Project Sidewalk
+- [Data Problems](/updates/cv_summary_USU/data_problems/data_summary.md): Summary of issues found in the crowdsourced data from Project Sidewalk
+- [Mapping Object Detection Output](/updates/cv_summary_USU/maps/maps.md): Explanation of potential output conversion in maps
+- [Evaluation Metrics for Object Detection Models](/updates/cv_summary_USU/model_evaluation/evaluation.md): Explanation of different evaluation metrics used to explain quality of Object Detection models along with discussion questions on how best to present the models
+- [Bounding Box Generation](/updates/cv_summary_USU/bounding_box/box.md): Summary of approaches used to generate the bounding box labels given the point source object labels from Project Sidewalk
 
 ## Methods
 
@@ -16,9 +16,7 @@ This document, along with the subsequent documents in this folder, offers a comp
 4. YOLO-NAS
 5. Swin Transformer
 
-Among these algorithms, we have emphasized YOLO-based algorithms due to their popularity and well-established performance. Additionally, Anny's research efforts have been dedicated to assessing the capabilities of the Swin Transformer, a novel approach that introduces a hierarchical attention structure to efficiently process large-scale image recognition tasks.
-
-By employing this diverse set of object detection algorithms, we are working to create comprehensive and insightful comparisons of the strengths and weaknesses of these algorithms in our specific object detection task.
+We are working to create comprehensive and insightful comparisons of the strengths and weaknesses of these algorithms in our specific object detection task.
 
 **Datasets:** In our object detection task, we have conducted our research using two primary datasets: San Pedro Garza Garcia, Mexico (SPGG) and Seattle, Washington.
 
@@ -60,8 +58,8 @@ Table 2: Approximate Quantity of Post-Filtration Data for SPGG Dataset
 
 | Class             | Train Images | Train Labels | Test Images | Test Labels |
 |-------------------|--------------|--------------|-------------|-------------|
-| Curb Ramp         |
-| Missing Curb Ramp |
+| Curb Ramp         | 1,100        | 1,600        | 270         | 370         |
+| Missing Curb Ramp | 3,000        | 6,000        | 1,000       | 1,700       |
 
 Table 3: Approximate Quanitty of Post-Filtration Data for Seattle Dataset
 
