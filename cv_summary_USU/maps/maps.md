@@ -15,7 +15,7 @@
 
 This lat/long is not precise. It is within a general area, but it does not pinpoint the exact object 
 
-<iframe src="https://raw.githubusercontent.com/camwirth/sidewalk/main/cv_summary_USU/maps/html_files/map" width="600" height="400"></iframe>
+<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/map.html" width="600" height="400"></iframe>
 
 As can be seen in this map, the objects do not land in accurate locations and it is difficult to pinpoint where the object should actually stand
 
