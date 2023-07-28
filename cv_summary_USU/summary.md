@@ -1,10 +1,10 @@
 # Summary of Object Detection Progress by the USU CV Team
 
 This document, along with the subsequent documents in this folder, offers a comprehensive summary of the work completed by the USU CV team on the Universal Pathways project. Here, we provide an overall summary of our team's methodologies, the challenges we faced, and the results we obtained. For a more in-depth exploration of specific topics and issues, we have included additional documents in this folder. Each of these supplementary documents delves into distinct aspects of our research, presenting detailed explanations, insights, and findings. Brief summaries of the information covered in these additional documents are provided below:
-- [Data Problems](/updates/cv_summary_USU/data_problems/data_summary.md): Summary of issues found in the crowdsourced data from Project Sidewalk
-- [Mapping Object Detection Output](/updates/cv_summary_USU/maps/maps.md): Explanation of potential output conversion in maps
-- [Evaluation Metrics for Object Detection Models](/updates/cv_summary_USU/model_evaluation/evaluation.md): Explanation of different evaluation metrics used to explain quality of Object Detection models along with discussion questions on how best to present the models
-- [Bounding Box Generation](/updates/cv_summary_USU/bounding_box/box.md): Summary of approaches used to generate the bounding box labels given the point source object labels from Project Sidewalk
+- [Data Problems](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/data_summary.html): Summary of issues found in the crowdsourced data from Project Sidewalk
+- [Mapping Object Detection Output](https://camwirth.github.io/sidewalk/cv_summary_USU/maps/maps.html): Explanation of potential output conversion in maps
+- [Evaluation Metrics for Object Detection Models](https://camwirth.github.io/sidewalk/cv_summary_USU/model_evaluation/evaluation.html): Explanation of different evaluation metrics used to explain quality of Object Detection models along with discussion questions on how best to present the models
+- [Bounding Box Generation](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/box.html): Summary of approaches used to generate the bounding box labels given the point source object labels from Project Sidewalk
 
 ## Methods
 
