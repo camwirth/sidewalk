@@ -1,36 +1,58 @@
 # Mapping Predicted Lables
 
-- generated two different maps for visualizing the output of the object detection task
+In this report, we present our efforts to map the output of an object detection model used for identifying curb ramps in urban environments. Our objective was to visualize the detected curb ramps on a map, both by estimating their individual latitude and longitude and by using the given latitude and longitude of panorama images. We aimed to assess the accuracy of the model's predictions and identify potential areas of improvement.
 
 ## 1. Mapping Estimated Lat/Long of individual labels
 
-- this map aims to plot each of the detected curb ramps on the map using a calculated latitude/longitude
-- the coloring of each of the points is based on the confidence of the label (make distinction from whether labels are good or bad objects)
+The first map we generated aimed to plot each detected curb ramp on the map using calculated latitude and longitude values. The coloring of each point on the map indicates the confidence score of the object label, representing the model's certainty in its predictions. It's important to note that this confidence score doesn't determine the quality of the object (e.g., accessible curb ramp), which requires further assessment and validation.
 
 **Calculation of Latitude and Longitude:**
-- used method explained by Mikey that the UW team has previously used
-- calculate the distance using code linked here
-- using the distance and the given lat/ long data from the pano image calculate the lat /long using the haversine distance formaula
+To estimate the latitude and longitude of individual curb ramps, we employed a method previously used and validated by Mikey and the UW team. The core of this estimation lies in calculating the distance from the object to the camera and determining the heading angle. With these twocomponents, along with the latitude and longitude of the panorama image, and the pixel coordinates (x, y) of the object, we derived the approximate latitude and longitude of the curb ramp using the haversine distance formula.
 
+_Calculation of Distance and Heading:_
 
-This lat/long is not precise. It is within a general area, but it does not pinpoint the exact object 
+The first step in our estimation involved calculating the distance from the curb ramp to the camera. We used the formula:
+'''
+distance = 18.6051843 + 0.0138947 * (pano_height / 2 - y)
+'''
 
+where pano_height represents the height of the panorama image, and y denotes the vertical pixel coordinate of the object. This formula provides an estimated distance in meters based on the position of the object within the panorama.
+
+Next, we determined the heading angle, which indicates the object's horizontal direction relative to the camera's view. The heading was calculated using the formula:
+
+'''
+heading = 360 * x / pano_width
+'''
+
+Here, x corresponds to the horizontal pixel coordinate of the object, and pano_width denotes the width of the panorama image. This heading angle played a crucial role in orienting the object's position with respect to the camera's field of view.
+
+_Applying the Haversine Distance Formula:_
+
+Having obtained the distance and heading, we combined this information with the latitude and longitude of the panorama image. Using these parameters and the pixel coordinates of the object, we applied the haversine distance formula, a standard method for calculating the distance between two points on the Earth's surface given their latitude and longitude. This approach allowed us to estimate the approximate latitude and longitude of the curb ramp's location within a general area.
+
+_Limitations of the Approach:_
+
+This estimation method has significant limitations. While our approach can estimate the general area of the object's location, it does not guarantee pinpoint accuracy. As shown in the map below (Figure 1), the plotted positions of the detected objects do not align precisely with their actual physical locations. Consequently, this lack of precision may pose challenges when trying to identify the exact placement of curb ramps in urban environments.
+
+Figure 1: Map with Estimated Lat/Long
 <iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/map.html" width="600" height="400"></iframe>
 
-As can be seen in this map, the objects do not land in accurate locations and it is difficult to pinpoint where the object should actually stand
 
 ## 2. Mapping Lat/Long of Pano
 
-- more accurate approach was to use the given latitude longitude for the panorama image
-- a score was generated for the image (intersection) by taking the number of detected curb ramps and divide it by the total number of potential curb ramps (curb ramps / curb ramps + missing curb ramps)
-- rather than trying to pinpoint the exact location of the object general areas of interest are represented (suggested areas of improvement)
+For a more accurate approach, we utilized the given latitude and longitude data of the panorama image. A score was generated for each intersection by calculating the ratio of detected curb ramps to the total number of potential curb ramps (curb ramps / curb ramps + missing curb ramps). Instead of pinpointing the exact location of each object, this method represents general areas of interest on the map and suggests potential areas of improvement.
 
-<iframe src="https://raw.githubusercontent.com/camwirth/sidewalk/main/cv_summary_USU/maps/html_files/map" width="600" height="400"></iframe>
+Figure 2: Map with Lat/Long of Pano
 
-- note that predictions on images have been filtered to represent an ideal situation rather than the complete total output of the current object detection model.
+<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/map.html" width="600" height="400"></iframe>
+<!-- look into why the images don't pop up?? -->
 
+ It should be highlighted that the predictions displayed in the maps have been filtered to represent an ideal scenario rather than depicting the complete output of the current object detection model. This filtering was done to provide a more focused analysis and facilitate the identification of areas that require attention.
 
 ## Conclusions
 
-- generating latitutde and longitude points for each individual object is difficult and inaccurate
-- general scores based on number of curb ramps and missing curb ramps can be generated for each intersection
+Based on our mapping efforts, we draw the following conclusions:
+
+1. Generating precise latitude and longitude points for each individual object using the object detection model is challenging and leads to inaccuracies in the plotted locations.
+
+2. Utilizing general scores based on the number of detected curb ramps and missing curb ramps at each intersection provides a more accurate representation of potential areas of improvement.
