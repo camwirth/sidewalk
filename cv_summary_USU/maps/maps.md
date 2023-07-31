@@ -38,7 +38,7 @@ Figure 1: Map with Estimated Lat/Long
 
 [Full Map](https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/spgg-curb-test-map.html)
 
-<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/spgg-curb-test-map.html" width="600" height="400"></iframe>
+<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/spgg-curb-test-map.html" width="1000" height="800"></iframe>
 
 
 ## 2. Mapping Lat/Long of Pano
@@ -49,7 +49,7 @@ Figure 2: Map with Lat/Long of Pano
 
 [Full Map](https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/map.html)
 
-<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/map.html" width="600" height="400"></iframe>
+<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/map.html" width="1000" height="800"></iframe>
 <!-- look into why the images don't pop up?? -->
 
  It should be highlighted that the predictions displayed in the maps have been filtered to represent an ideal scenario rather than depicting the complete output of the current object detection model. This filtering was done to provide a more focused analysis and facilitate the identification of areas that require attention.
