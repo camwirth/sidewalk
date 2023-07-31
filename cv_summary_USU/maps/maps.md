@@ -35,7 +35,7 @@ _Limitations of the Approach:_
 This estimation method has significant limitations. While our approach can estimate the general area of the object's location, it does not guarantee pinpoint accuracy. As shown in the map below (Figure 1), the plotted positions of the detected objects do not align precisely with their actual physical locations. Consequently, this lack of precision may pose challenges when trying to identify the exact placement of curb ramps in urban environments.
 
 Figure 1: Map with Estimated Lat/Long
-<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/map.html" width="600" height="400"></iframe>
+<iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/spgg-curb-test-map.html" width="600" height="400"></iframe>
 
 
 ## 2. Mapping Lat/Long of Pano
