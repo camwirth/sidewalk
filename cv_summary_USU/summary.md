@@ -114,10 +114,10 @@ Table 6: Object Detection Results for Missing Curb Ramp Class (Improved Test Set
 | Swin Transformer | Seattle | N/A       | 0.820  | 0.709             | 
 
 Considering the impact of the improved test set on the model performance, it is reasonable to anticipate similar improvements in the results of the other Object Detection models when evaluated with a more accurate test set. These findings underscore the importance of data quality and its influence on the object detection outcomes, further emphasizing the need for robust and precise datasets to enhance the reliability of model evaluations.
-
+<!-- 
 **Note:**
 - something about problems with YOLOv5 and YOLOv8 for more information reach out to Braxton/Gavin
-- Evaluation for the Swin Transformer is different.. does not give the precision metrics only relates the recall and AP via the COCO format rather than the YOLO format
+- Evaluation for the Swin Transformer is different.. does not give the precision metrics only relates the recall and AP via the COCO format rather than the YOLO format -->
 
 \* Testing for model has not yet been completed.
 
