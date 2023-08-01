@@ -7,24 +7,25 @@ In this report, we present our efforts to map the output of an object detection 
 The first map we generated aimed to plot each detected curb ramp on the map using calculated latitude and longitude values. The coloring of each point on the map indicates the confidence score of the object label, representing the model's certainty in its predictions. It's important to note that this confidence score doesn't determine the quality of the object (e.g., accessible curb ramp), which requires further assessment and validation.
 
 **Calculation of Latitude and Longitude:**
-To estimate the latitude and longitude of individual curb ramps, we employed a method previously used and validated by Mikey and the UW team. The core of this estimation lies in calculating the distance from the object to the camera and determining the heading angle. With these twocomponents, along with the latitude and longitude of the panorama image, and the pixel coordinates (x, y) of the object, we derived the approximate latitude and longitude of the curb ramp using the haversine distance formula.
+To estimate the latitude and longitude of individual curb ramps, we employed a method previously used and validated by Mikey and the UW team. The core of this estimation lies in calculating the distance from the object to the camera and determining the heading angle. With these two components, along with the latitude and longitude of the panorama image, and the pixel coordinates (x, y) of the object, we derived the approximate latitude and longitude of the curb ramp using the haversine distance formula.
 
 _Calculation of Distance and Heading:_
 
 The first step in our estimation involved calculating the distance from the curb ramp to the camera. We used the formula:
-'''
-distance = 18.6051843 + 0.0138947 * (pano_height / 2 - y)
-'''
 
-where pano_height represents the height of the panorama image, and y denotes the vertical pixel coordinate of the object. This formula provides an estimated distance in meters based on the position of the object within the panorama.
+```python
+distance = 18.6051843 + 0.0138947 * (pano_height / 2 - y)
+```
+
+where `pano_height` represents the height of the panorama image, and `y` denotes the vertical pixel coordinate of the object. This formula provides an estimated distance in meters based on the position of the object within the panorama.
 
 Next, we determined the heading angle, which indicates the object's horizontal direction relative to the camera's view. The heading was calculated using the formula:
 
-'''
+```python 
 heading = 360 * x / pano_width
-'''
+```
 
-Here, x corresponds to the horizontal pixel coordinate of the object, and pano_width denotes the width of the panorama image. This heading angle played a crucial role in orienting the object's position with respect to the camera's field of view.
+Here, `x` corresponds to the horizontal pixel coordinate of the object, and `pano_width` denotes the width of the panorama image. This heading angle played a crucial role in orienting the object's position with respect to the camera's field of view.
 
 _Applying the Haversine Distance Formula:_
 
@@ -45,7 +46,7 @@ Figure 1: Map with Estimated Lat/Long
 
 ## 2. Mapping Lat/Long of Pano
 
-For a more accurate approach, we utilized the given latitude and longitude data of the panorama image. A score was generated for each intersection by calculating the ratio of detected curb ramps to the total number of potential curb ramps (curb ramps / curb ramps + missing curb ramps). Instead of pinpointing the exact location of each object, this method represents general areas of interest on the map and suggests potential areas of improvement.
+For a more accurate approach, we utilized the given latitude and longitude data of the panorama image. A score was generated for each intersection by calculating the ratio of detected curb ramps to the total number of potential curb ramps `score = (curb ramps / (curb ramps + missing curb ramps))`. Instead of pinpointing the exact location of each object, this method represents general areas of interest on the map and suggests potential areas of improvement.
 
 Figure 2: Map with Lat/Long of Pano
 

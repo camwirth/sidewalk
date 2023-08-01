@@ -16,7 +16,7 @@ Another factor contributing to missing labels is the application of initial qual
 
 Examples of panorama images with missing labels are included below. 
 
-| ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/missing_labels/0ZxrPRUFN51hrdr9y2KL4g.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/missing_labels/4kOxGkIgHq-Ea5NvoLP44A.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/missing_labels/4kOxGkIgHq-Ea5NvoLP44A.jpg) |
+| ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/missing_labels/0ZxrPRUFN51hrdr9y2KL4g.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/missing_labels/4kOxGkIgHq-Ea5NvoLP44A.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/missing_labels/1msQvM1iFLS4VJk-bGlTYw.jpg) |
 
 **2. Inaccurate Bounding Boxes**
 Another significant challenge we encounter with the Project Sidewalk data is the issue of inaccurate bounding boxes for labeled objects. The labeling process in Project Sidewalk provides only centerpoints to indicate the object's presence. This limited information makes it difficult to estimate precise bounding boxes that encompass the entire object accurately. As a result, the generated bounding boxes may not fully encapsulate the object, leading to inaccuracies in the data.
@@ -38,7 +38,7 @@ The classification of driveways in the data is both inconsistent and incomplete.
 
 Examples of panorama images this confusion of inconsitent labeled driveways are included below. 
 
-| ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/driveways/5C3Pb2g_q6gSXdccde-cPg.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/driveways/6bjoRhtmn6IyawXd-_SY5A.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/driveways/5C3Pb2g_q6gSXdccde-cPg.jpg) |
+| ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/driveways/5C3Pb2g_q6gSXdccde-cPg.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/driveways/6bjoRhtmn6IyawXd-_SY5A.jpg) | ![](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/driveways/a3TPcy7s3hdWPxAhd-emqw.jpg) |
 
 <!-- ## Analyzing Highest Quality data
 When analyzing the highest quality data in Project Sidewalk, we have observed some important findings:
@@ -56,7 +56,7 @@ In conclusion, several key takeaways have emerged from our analysis of the Proje
 
 * **Clarifying Driveway Classification:** We must decide on a clear and consistent approach for classifying driveways as either curb ramps or missing curb ramps. Providing explicit guidelines to contributors and refining the labeling process can help ensure accurate and unambiguous driveway classification.
 
-* **Adapting Project Sidewalk Data:** Converting the Project Sidewalk data to suit our specific object detection task requires careful consideration. Several approaches can be explored, including manual data labeling, using the existing sidewalk data to train a preliminary model, and leveraging the predictions of the preliminary model to validate further training data. Additionally, creating dedicated validation software for object detection can streamline the data adaptation process and improve the efficiency of model training.
+* **Adapting Project Sidewalk Data:** Converting the Project Sidewalk data to suit our specific object detection task requires careful consideration. Several approaches can be explored, including manual data labeling or using the existing sidewalk data to train a preliminary model, and leveraging the predictions of the preliminary model to validate further training data. Additionally, creating dedicated validation software for object detection can streamline the data adaptation process and improve the efficiency of model training.
 
 
 

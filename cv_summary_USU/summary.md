@@ -82,6 +82,8 @@ Our research work on different object detection algorithms and datasets has been
 ## Object Detection Results
 In this section, we present the results obtained from the evaluation of our different object detection algorithms applied to the 'Curb Ramp' and 'Missing Curb Ramp' classes. The testing dataset used for evaluation was derived from the crowd-sourced annotations provided by Project Sidewalk. However, it is important to note that the testing data includes inaccuracies, which influence the evaluation of the various models' performances.
 
+It is important to note that acquiring results from each of the models has been challenging due to limitations with computer hardware and specific model configurations. Consequently, the tables provided will be continuously updated as the results become available. Additionally, it is important to highlight that the Swin Transformer algorithm adheres to the COCO format and solely reports the model's Recall and Average Precision, without providing an overall precision metric.
+
 For a more comprehensive understanding of the evaluation metrics provided in the following tables, refer to the [Evaluation Metrics for Object Detection Models](https://camwirth.github.io/sidewalk/cv_summary_USU/model_evaluation/evaluation.html) document, which explains the metrics in detail. It is worth mentioning that each of the tests was conducted using an IoU threshold of 0.5 and a confidence threshold of 0.25.
 
 Table 4: Object Detection Results for Curb Ramp Class
@@ -114,10 +116,6 @@ Table 6: Object Detection Results for Missing Curb Ramp Class (Improved Test Set
 | Swin Transformer | Seattle | N/A       | 0.820  | 0.709             | 
 
 Considering the impact of the improved test set on the model performance, it is reasonable to anticipate similar improvements in the results of the other Object Detection models when evaluated with a more accurate test set. These findings underscore the importance of data quality and its influence on the object detection outcomes, further emphasizing the need for robust and precise datasets to enhance the reliability of model evaluations.
-<!-- 
-**Note:**
-- something about problems with YOLOv5 and YOLOv8 for more information reach out to Braxton/Gavin
-- Evaluation for the Swin Transformer is different.. does not give the precision metrics only relates the recall and AP via the COCO format rather than the YOLO format -->
 
 \* Testing for model has not yet been completed.
 
