@@ -38,6 +38,8 @@ Figure 1: Map with Estimated Lat/Long
 
 [Full Map](https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/spgg-curb-test-map.html)
 
+<!-- (map isn't fitting correctly in the iframe right now, look at the link above for the correct map) -->
+
 <iframe src="https://camwirth.github.io/sidewalk/cv_summary_USU/maps/html_files/spgg-curb-test-map.html" width="1000" height="800"></iframe>
 
 

@@ -12,15 +12,17 @@ Another obstacle lies in the fact that the 'center' coordinates provided by the 
 To tackle these challenges, each member of our team has adopted different methods for estimating the bounding box of objects in panorama images. While the specific techniques may vary, the underlying goal remains constant: to create bounding boxes that encompass the objects with precision and accuracy. The different methods we have used are explained below.
 
 ## Use Crop Code from Project Sidewalk to Generate Bounding Box
-Anny and Gavin have adopted a method that leverages the [predict_crop_size]() code provided by Project Sidewalk, which takes the y-coordinate and height of the panorama image as input and returns the size of the bounding box. The bounding box is generated based on the original panorama size, and any resizing applied to the image for object detection also scales the bounding box accordingly.
+Anny and Gavin have adopted a method that leverages the [predict_crop_size](https://github.com/ProjectSidewalk/sidewalk-panorama-tools/blob/d4cbe8dad16d51b922726e9d355a6881c281e50e/CropRunner.py#L133-L150) code provided by Project Sidewalk, which takes the y-coordinate and height of the panorama image as input and returns the size of the bounding box. The bounding box is generated based on the original panorama size, and any resizing applied to the image for object detection also scales the bounding box accordingly.
 
 This approach offers several advantages, providing a reasonably accurate general bounding box for the detected objects. However, it does have some limitations. One notable drawback is that the bounding box often fails to encompass the entire object. Especially when dealing with off-centered center points, the resulting bounding box may only cover a small portion of the actual object, leading to incomplete representations.
 
 Moreover, the method generates square bounding boxes, which may not be optimal for detecting objects like Curb Ramps and Missing Curb Ramps, which tend to exhibit a more rectangular shape. This mismatch between the object's actual shape and the square bounding box can affect the precision and accuracy of the object detection algorithm.
 
-To illustrate the performance of this method, visual examples of both high-quality and low-quality bounding boxes are presented below. These examples highlight the varying degrees of accuracy achieved by the bounding box estimation approach
+To illustrate the performance of this method, visual examples of both high-quality and low-quality bounding boxes are presented below. These examples highlight the varying degrees of accuracy achieved by the bounding box estimation approach.
 
-<!-- PROVIDE EXAMPLES  -->
+![](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/1EuQlB8iviUzczIn6vEEmA_bbox1.jpg)
+
+![](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/PUUJWP3yNLJhtK5qWBZk0w_bbox1.jpg)
 
 ## Use Crop Code from Project Sidewalk after Image Scaling
 
@@ -33,8 +35,9 @@ However, the considerable increase in bounding box size also presents some chall
 
 To provide a comprehensive overview of the method's performance, visual examples of both high-quality and low-quality bounding boxes are presented below. These examples demonstrate the varying outcomes of the bounding box generation process and highlight the implications of using larger bounding boxes.
 
+![](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/1EuQlB8iviUzczIn6vEEmA_bbox2.jpg)
 
-<!-- PROVIDE EXAMPLES  -->
+![](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/PUUJWP3yNLJhtK5qWBZk0w_bbox2.jpg)
 
 ## Use the canvas_width and canvas_height information on the metadata for each label
 
@@ -46,7 +49,9 @@ However, there are some limitations to consider. The bounding boxes generated us
 
 To illustrate the performance of this approach, visual examples of both high-quality and low-quality bounding boxes are presented below. These examples showcase the varying outcomes of the bounding box generation process, highlighting the challenges posed by small bounding boxes, especially in cases of off-centered images.
 
-<!-- PROVIDE EXAMPLES  -->
+![](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/1EuQlB8iviUzczIn6vEEmA_bbox3.jpg)
+
+![](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/PUUJWP3yNLJhtK5qWBZk0w_bbox3.jpg)
 
 ## Conclusions
 

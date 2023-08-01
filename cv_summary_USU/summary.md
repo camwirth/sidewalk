@@ -68,12 +68,12 @@ Table 3: Approximate Quanitty of Post-Filtration Data for Seattle Dataset
 | Curb Ramp         |
 | Missing Curb Ramp |
 
-Refer to the document [Bounding Box Generation]() for detailed information on the approaches we use to generate bounding box annotations for each of the respective datasets. 
+Refer to the document [Bounding Box Generation](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/box.html) for detailed information on the approaches we use to generate bounding box annotations for each of the respective datasets. 
 
 ## Challenges
 Our research work on different object detection algorithms and datasets has been accompanied by several challenges. This section provides a summary of these encountered problems:
 
-**Poor data quality with crowdsourced labels:** Despite implementing pre-processing steps, the quality of crowdsourced labels obtained from Project Sidewalk has posed significant issues. The main challenges arise from incomplete labeling, inaccurate bounding boxes, and the presence of false labels in the dataset. These problems not only affect the model training process but also make it challenging to accurately evaluate the model's performance. Ground truth comparisons for testing data become unreliable due to inaccuracies in the data labels. For a more detailed analysis of these data-related challenges, refer to the [Data Problems]() document.
+**Poor data quality with crowdsourced labels:** Despite implementing pre-processing steps, the quality of crowdsourced labels obtained from Project Sidewalk has posed significant issues. The main challenges arise from incomplete labeling, inaccurate bounding boxes, and the presence of false labels in the dataset. These problems not only affect the model training process but also make it challenging to accurately evaluate the model's performance. Ground truth comparisons for testing data become unreliable due to inaccuracies in the data labels. For a more detailed analysis of these data-related challenges, refer to the [Data Problems](https://camwirth.github.io/sidewalk/cv_summary_USU/data_problems/data_summary.html) document.
 
 **Challenges in distinguishing objects:** Detecting curb ramps, in particular, has proven to be a difficult task, even for human observers. The panorama images used in the project are significantly large, leading to image resizing to expedite processing, but resulting in a loss of resolution and aspect ratio. Furthermore, the similarities between missing curb ramps and curb ramps create a challenge in distinguishing between the two objects accurately. The minute differences between these objects and their similarity to other features make precise detection and classification demanding.
 
@@ -82,37 +82,44 @@ Our research work on different object detection algorithms and datasets has been
 ## Object Detection Results
 In this section, we present the results obtained from the evaluation of our different object detection algorithms applied to the 'Curb Ramp' and 'Missing Curb Ramp' classes. The testing dataset used for evaluation was derived from the crowd-sourced annotations provided by Project Sidewalk. However, it is important to note that the testing data includes inaccuracies, which influence the evaluation of the various models' performances.
 
-For a more comprehensive understanding of the evaluation metrics provided in the following tables, refer to the [Object Detection Metrics]() document, which explains the metrics in detail. It is worth mentioning that each of the tests was conducted using an IoU threshold of 0.5 and a confidence threshold of 0.25.
+For a more comprehensive understanding of the evaluation metrics provided in the following tables, refer to the [Evaluation Metrics for Object Detection Models](https://camwirth.github.io/sidewalk/cv_summary_USU/model_evaluation/evaluation.html) document, which explains the metrics in detail. It is worth mentioning that each of the tests was conducted using an IoU threshold of 0.5 and a confidence threshold of 0.25.
 
 Table 4: Object Detection Results for Curb Ramp Class
 
 | Model            | Dataset | Precision | Recall | Average Precision |
 |------------------|---------|-----------|--------|-------------------|
-| YOLOv8           | SPGG    | 
-| YOLOv5           | Seattle |
+| YOLOv8           | SPGG    | 0.68      | 0.72   | 0.79              |
+| YOLOv5           | Seattle | *         | *      | *                 |
 | YOLOR            | SPGG    | 0.611     | 0.55   | 0.777             |
 | YOLO-NAS         | SPGG    | 0.286     | 0.829  | 0.577             |
-| Swin Transformer | Seattle |
+| Swin Transformer | Seattle | N/A       | 0.831  | 0.420             |
 
 Table 5: Object Detection Results for Missing Curb Ramp Class
 
 | Model            | Dataset | Precision | Recall | Average Precision |
 |------------------|---------|-----------|--------|-------------------|
-| YOLOv8           | SPGG    | 
-| YOLOv5           | Seattle |
+| YOLOv8           | SPGG    | *         | *      | *                 | 
+| YOLOv5           | Seattle | *         | *      | *                 |
 | YOLOR            | SPGG    | 0.279     | 0.19   | 0.278             |
 | YOLO-NAS         | SPGG    | 0.275     | 0.796  | 0.419             |
-| Swin Transformer | Seattle |
+| Swin Transformer | Seattle | *         | *      | *                 |
 
 Anny and Camille made efforts to manually improve the given test set for their respective datasets. This was done in hopes to achieve a more accurate representation of the test dataset and provide more precise testing results. Table 6 showcases the results for their respective models and datasets based on the manually improved test set. These modifications demonstrated enhanced accuracy for the 'Curb Ramp' class:
 
 Table 6: Object Detection Results for Missing Curb Ramp Class (Improved Test Set)
+
 | Model            | Dataset | Precision | Recall | Average Precision |
 |------------------|---------|-----------|--------|-------------------|
 | YOLO-NAS         | SPGG    | 0.5227    | 0.8618 | 0.7445            |
-| Swin Transformer | Seattle |
+| Swin Transformer | Seattle | N/A       | 0.820  | 0.709             | 
 
 Considering the impact of the improved test set on the model performance, it is reasonable to anticipate similar improvements in the results of the other Object Detection models when evaluated with a more accurate test set. These findings underscore the importance of data quality and its influence on the object detection outcomes, further emphasizing the need for robust and precise datasets to enhance the reliability of model evaluations.
+
+**Note:**
+- something about problems with YOLOv5 and YOLOv8 for more information reach out to Braxton/Gavin
+- Evaluation for the Swin Transformer is different.. does not give the precision metrics only relates the recall and AP via the COCO format rather than the YOLO format
+
+\* Testing for model has not yet been completed.
 
 
 ## Conclusion and Questions
