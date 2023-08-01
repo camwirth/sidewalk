@@ -65,8 +65,8 @@ Table 3: Approximate Quanitty of Post-Filtration Data for Seattle Dataset
 
 | Class             | Train Images | Train Labels | Test Images | Test Labels |
 |-------------------|--------------|--------------|-------------|-------------|
-| Curb Ramp         |
-| Missing Curb Ramp |
+| Curb Ramp         | 5,000        | 15,000       | 1,200       | 3,600       | 
+| Missing Curb Ramp | 5,000        | 2,500        | 1,200       | 600         |
 
 Refer to the document [Bounding Box Generation](https://camwirth.github.io/sidewalk/cv_summary_USU/bounding_box/box.html) for detailed information on the approaches we use to generate bounding box annotations for each of the respective datasets. 
 
