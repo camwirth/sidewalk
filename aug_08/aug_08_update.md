@@ -16,4 +16,4 @@ I have created a script to map the panorama images with intersections in a given
 
 <iframe src="https://camwirth.github.io/sidewalk/aug_08/intersections_panos.html" width="1000" height="800"></iframe>
 
-A csv file of these panorama images mapped to the intersection id can be found [here](https://github.com/camwirth/sidewalk/blob/main/aug_08/Intersection_Seattle(1).csv)
+A csv file of these panorama images mapped to the intersection id can be found [here](https://github.com/camwirth/sidewalk/blob/main/aug_08/curb-ramp_pano_intersections_seattle.csv)
